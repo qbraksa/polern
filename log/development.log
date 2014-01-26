@@ -1,0 +1,192 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-26 22:22:00 +0000
+Processing by CommunitiesController#index as HTML
+Completed 500 Internal Server Error in 11ms
+
+ActiveRecord::StatementInvalid (Could not find table 'communities'):
+  app/controllers/communities_controller.rb:26:in `index'
+
+
+  Rendered /Users/zakaria/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/zakaria/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/zakaria/.rvm/gems/ruby-2.0.0-p353/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateUsers (20130516151811)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "password_digest" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130516151811')[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+Migrating to CreateCommunities (20130516155624)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "communities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "category" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130516155624')[0m
+  [1m[35m (0.9ms)[0m  commit transaction
+Migrating to CreateSubscriptions (20130516155700)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "subscriptions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "community_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130516155700')[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+Migrating to CreateRessources (20130516164510)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "ressources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "link" text, "type" varchar(255), "user_id" integer, "community_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130516164510')[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to CreateResUpvotes (20130516172759)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "res_upvotes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "ressource_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130516172759')[0m
+  [1m[35m (1.4ms)[0m  commit transaction
+Migrating to AddAdminColumnToUsers (20130516201128)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130516201128')[0m
+  [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-01-26 22:22:17 +0000
+Processing by CommunitiesController#index as HTML
+  [1m[36mCommunity Load (0.1ms)[0m  [1mSELECT "communities".* FROM "communities" [0m
+  Rendered communities/index.html.erb within layouts/application (1.6ms)
+Compiled bootstrap.css  (0ms)  (pid 24949)
+Compiled communities.css  (72ms)  (pid 24949)
+Compiled flat-ui.css  (0ms)  (pid 24949)
+Compiled pages.css  (1ms)  (pid 24949)
+Compiled ressources.css  (0ms)  (pid 24949)
+Compiled sessions.css  (0ms)  (pid 24949)
+Compiled users.css  (1ms)  (pid 24949)
+Compiled application.css  (109ms)  (pid 24949)
+Compiled jquery.js  (4ms)  (pid 24949)
+Compiled jquery_ujs.js  (0ms)  (pid 24949)
+Compiled bootstrap-tooltip.js  (0ms)  (pid 24949)
+Compiled communities.js  (555ms)  (pid 24949)
+Compiled custom_checkbox_and_radio.js  (0ms)  (pid 24949)
+Compiled custom_radio.js  (0ms)  (pid 24949)
+Compiled endless_scroll.js  (0ms)  (pid 24949)
+Compiled html5shiv.js  (0ms)  (pid 24949)
+Compiled icon-font-ie7.js  (0ms)  (pid 24949)
+Compiled jquery-1.8.2.min.js  (1ms)  (pid 24949)
+Compiled jquery-ui-1.10.0.custom.min.js  (1ms)  (pid 24949)
+Compiled jquery.dropkick-1.0.0.js  (0ms)  (pid 24949)
+Compiled jquery.placeholder.js  (0ms)  (pid 24949)
+Compiled jquery.tagsinput.js  (0ms)  (pid 24949)
+Compiled lte-ie7-24.js  (0ms)  (pid 24949)
+Compiled pages.js  (165ms)  (pid 24949)
+Compiled ressources.js  (146ms)  (pid 24949)
+Compiled sessions.js  (182ms)  (pid 24949)
+Compiled users.js  (147ms)  (pid 24949)
+Compiled application.js  (1294ms)  (pid 24949)
+Completed 200 OK in 1523ms (Views: 1515.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-01-26 22:22:19 +0000
+Served asset /bootstrap.css - 200 OK (6ms)
+
+
+Started GET "/assets/communities.css?body=1" for 127.0.0.1 at 2014-01-26 22:22:19 +0000
+Served asset /communities.css - 200 OK (1ms)
+
+
+Started GET "/assets/pages.css?body=1" for 127.0.0.1 at 2014-01-26 22:22:19 +0000
+Served asset /pages.css - 200 OK (5ms)
+
+
+Started GET "/assets/flat-ui.css?body=1" for 127.0.0.1 at 2014-01-26 22:22:19 +0000
+Served asset /flat-ui.css - 200 OK (6ms)
+
+
+Started GET "/assets/ressources.css?body=1" for 127.0.0.1 at 2014-01-26 22:22:19 +0000
+Served asset /ressources.css - 200 OK (3ms)
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-01-26 22:22:19 +0000
+Served asset /sessions.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:19 +0000
+Served asset /jquery.js - 200 OK (4ms)
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-01-26 22:22:19 +0000
+Served asset /users.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /jquery_ujs.js - 200 OK (11ms)
+
+
+Started GET "/assets/custom_radio.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /custom_radio.js - 200 OK (1ms)
+
+
+Started GET "/assets/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /bootstrap-tooltip.js - 200 OK (1ms)
+
+
+Started GET "/assets/communities.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /communities.js - 200 OK (1ms)
+
+
+Started GET "/assets/endless_scroll.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /endless_scroll.js - 200 OK (35ms)
+
+
+Started GET "/assets/custom_checkbox_and_radio.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /custom_checkbox_and_radio.js - 200 OK (1ms)
+
+
+Started GET "/assets/html5shiv.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /html5shiv.js - 200 OK (1ms)
+
+
+Started GET "/assets/icon-font-ie7.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /icon-font-ie7.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery-1.8.2.min.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /jquery-1.8.2.min.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery-ui-1.10.0.custom.min.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /jquery-ui-1.10.0.custom.min.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.placeholder.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /jquery.placeholder.js - 200 OK (1ms)
+
+
+Started GET "/assets/ressources.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /ressources.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.tagsinput.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /jquery.tagsinput.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.dropkick-1.0.0.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /jquery.dropkick-1.0.0.js - 200 OK (1ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /pages.js - 200 OK (1ms)
+
+
+Started GET "/assets/lte-ie7-24.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /lte-ie7-24.js - 200 OK (1ms)
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /sessions.js - 200 OK (1ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-01-26 22:22:20 +0000
+Served asset /users.js - 200 OK (1ms)

@@ -1,0 +1,33 @@
+
+<div class="row">
+	<div class="span12">
+		<div class="box">
+			<h1>Login</h1>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<div class="box">
+			<% if flash[:alert] %>
+				<div class="alert alert-error">
+				  <%= flash[:alert] %>
+				</div>
+			<% end %>
+			<%= form_tag sessions_path do %>
+			<div class="field">
+				<%= label_tag :email %>
+				<%= text_field_tag :email, params[:email] %>
+			</div>
+			<div class="field">
+				<%= label_tag :password %>
+				<%= password_field_tag :password %>
+			</div>
+			<div class="actions">
+				<%= submit_tag "Login", :class => "btn btn-primary" %>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,63 @@
+<div class="row">
+	<div class="span12">
+		<%= image_tag("lrnx.png", :class => "lrnx_big") %>
+	</div>
+</div>
+
+<br/>
+
+<div class="row">
+	<div class="span12">
+		<div class="box">
+			<div class="row-fluid">
+				<div class="span6">
+					<h1>Communities</h1>
+				</div>
+				<div class="span6">
+					<div class="pull-right">
+						<% if current_user && current_user.admin %>
+							<%= form_for @community do |f| %> 
+								<%= f.text_field :name, :placeholder => "Community name" %>
+								<br/>
+								<%= f.submit "Add Community", :class => "btn btn-info btn-block" %> 
+							<% end %>
+						<% else %>
+							&nbsp;
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="row">
+	<div class="span12">
+		<div class="box">
+			
+			
+			<% @communities.each_with_index do |community, index| %>
+				<% if index % 4 == 0 %>
+					<div class="row-fluid">
+				<% end %>
+				
+				<div class="span3">
+					<div class="tile">
+				        <h1 class="tile-title"><%= link_to community.name, community %></h1>	
+					</div>
+				</div>
+				
+				<% if (index + 1) % 4 == 0 %>
+					</div>
+					<br/>
+				<% end %>		
+					
+			<% end %>
+			
+			
+		</div>
+	</div>	
+</div>
+

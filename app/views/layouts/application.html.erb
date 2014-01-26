@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>polern</title>
+	<%= stylesheet_link_tag "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+</head>
+<body class="container">
+
+	<br/>
+	<div class="navbar navbar-inverse">
+		<div class="navbar-inner">
+			<div class="container">
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li>
+						<%= link_to "polern", root_path %>
+					</li>	
+					<% if current_user %>
+					<li><%= link_to raw("<span class='fui-man-16'></span> &nbsp; Profile") , current_user %></li>
+					<li><%= link_to raw("<span class='fui-bubble-16'></span> &nbsp; Communities"), communities_index_path %></li>
+					<li><%= link_to "Log out", sessions_destroy_path %></li>
+					<% else %>
+					<li><%= link_to "Login", new_session_path %></li>
+					<li><%= link_to "Sign up", new_user_path %></li>
+					<% end %>
+					<% if current_user && current_user.admin %>
+					<li>
+					    <a href="#">
+							<span class='fui-settings-16'></span>
+	                    </a>
+	                      <ul>
+	                        <li><%= link_to "Users", users_index_path  %></li>
+	                        <li><a href="#">Communities</a></li>
+	                      </ul> <!-- /Sub menu -->
+	                    </li>                  
+					<% end %>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+	<br/>
+	<%= yield %>
+
+</body>
+</html>
